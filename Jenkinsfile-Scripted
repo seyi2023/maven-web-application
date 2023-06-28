@@ -12,7 +12,6 @@ node{
   stage('4UploadArtifacts'){
     sh "${mavenHome}/bin/mvn deploy"
   }
-
   stage('5Deploy'){
    deploy adapters: [tomcat9(credentialsId: 'NewTomcat-credential', path: '', url: 'http://3.16.66.134:8177/')], contextPath: null, war: 'target/*war'
   }
