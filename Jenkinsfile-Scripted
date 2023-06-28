@@ -13,7 +13,7 @@ node{
     sh "${mavenHome}/bin/mvn deploy"
   }
   stage('5Deploy'){
-   deploy adapters: [tomcat9(credentialsId: '02cce5cd-0766-4bed-907c-cc05a1e1136d', path: '', url: 'http://3.16.66.134:8177/')], contextPath: null, war: 'target/*war'
+   deploy adapters: [tomcat9(credentialsId: '02cce5cd-0766-4bed-907c-cc05a1e1136d', path: '', url: 'http://3.16.66.134:8177/')], contextPath: null, war: 'target/*.war'
   }
   stage('6Notification'){
     emailext body: '''Hi Team,
